@@ -1,18 +1,75 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="weather-app">
+      <header class="app-header">
+        <h1 class="app-title">⛅ Weather Dashboard</h1>
+        <p class="app-subtitle">Search for real-time weather anywhere</p>
+      </header>
 
-<h1>Weather App 🌦️</h1>
+      <div class="search-section">
+        <div class="search-bar">
+          <input type="text" id="city-input" class="city-input" placeholder="Enter city name..." autocomplete="off" />
+          <button id="search-btn" class="search-btn">Search</button>
+        </div>
+      </div>
 
-<input type="text" id="city" placeholder="Enter city">
-<button onclick="getWeather()">Search</button>
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span>Fetching weather...</span>
+      </div>
 
-<div id="weather"></div>
+      <div id="error" class="error-box hidden"></div>
 
-<script src="script.js"></script>
-</body>
+      <div id="weather-display" class="weather-display hidden">
+        <div class="weather-main">
+          <div class="city-info">
+            <h2 id="city-name" class="city-name"></h2>
+            <p id="description" class="weather-desc"></p>
+          </div>
+          <div class="temp-section">
+            <img id="weather-icon" class="weather-icon" src="" alt="icon" />
+            <span id="temperature" class="temperature"></span>
+          </div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail-card">
+            <span class="detail-label">Feels Like</span>
+            <span id="feels-like" class="detail-value"></span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-label">Humidity</span>
+            <span id="humidity" class="detail-value"></span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-label">Wind</span>
+            <span id="wind" class="detail-value"></span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-label">Pressure</span>
+            <span id="pressure" class="detail-value"></span>
+          </div>
+        </div>
+
+        <div class="unit-toggle">
+          <button id="unit-btn" class="unit-btn">Switch to °F</button>
+        </div>
+      </div>
+
+      <div id="recent-searches" class="recent-searches hidden">
+        <h3 class="recent-title">Recent Searches</h3>
+        <ul id="search-history" class="search-history"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
